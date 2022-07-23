@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
-  return (
+  let [number, setNumber] = React.useState(0);
+
+  function decrease(){setNumber(prevCount => prevCount - 1)};
+  function increase(){setNumber(prevCount => prevCount + 1)};
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button className='counter-minus btn' onClick={decrease}>-</button>
+        <div className='counter-count'>
+          <h1>{number}</h1>
+        </div>
+        <button className='counter-plus btn' onClick={increase}>+</button>
     </div>
   );
 }
